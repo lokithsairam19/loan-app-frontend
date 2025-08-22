@@ -1,25 +1,44 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Login from './components/Login';
+import Navbar from './components/Navbar';
+import Customers from './components/Customers';
+import Cities from './components/Cities';
+import Coverages from './components/Coverages';
+import LoanTypes from './components/LoanTypes';
+import Loans from './components/Loans';
+import Home from './components/Home';
+import DashboardHome from './components/DashboardHome';
+
+
 import './App.css';
 
-function App() {
+const App = () => {
+  const [isStarted, setIsStarted] = useState(false); 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [section, setSection] = useState('home'); 
+
+
+  if (!isStarted) {
+    return <Home onStart={() => setIsStarted(true)} />;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {!isLoggedIn ? (
+        <Login onLogin={setIsLoggedIn} />
+      ) : (
+        <>
+          <Navbar setSection={setSection} />
+          {section === 'home' && <DashboardHome />}
+          {section === 'customers' && <Customers />}
+          {section === 'cities' && <Cities />}
+          {section === 'coverages' && <Coverages />}
+          {section === 'loanTypes' && <LoanTypes />}
+          {section === 'loans' && <Loans />}
+        </>
+      )}
     </div>
   );
-}
+};
 
 export default App;
