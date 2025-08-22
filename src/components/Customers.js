@@ -199,7 +199,6 @@ const Customers = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Validate the form before proceeding
     const validationError = validateForm();
     if (validationError) {
       showAlert(validationError);
