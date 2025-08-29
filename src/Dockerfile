@@ -1,4 +1,5 @@
 FROM node:18 as build
+ENV HTTP_PROXY=http://localhost:8080
 WORKDIR /app
 COPY . .
 RUN npm install

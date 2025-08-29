@@ -1,10 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "/api",
-  headers: {
-    Authorization: "Bearer test-token",
-  },
+  baseURL: "http://localhost:8080/api"
 });
 
 export const login = (username, password) =>api.get(`/user/login/${username}/${password}`);
