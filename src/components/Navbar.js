@@ -52,7 +52,7 @@ const Navbar = ({ setSection }) => {
             
             <li className="logout">
               <button className="nav-link btn btn-link">
-                <a href='/home' style={{textDecoration: "none", color: "#FFFFFF8C"}}>Logout</a>
+                <a href='/' style={{textDecoration: "none", color: "#FFFFFF8C"}}>Logout</a>
               </button>
             </li>
           </ul>
